@@ -1,4 +1,4 @@
-# Rock_Paper_Scissors
+# Rock Paper Scissors
 
 [DEMO](https://danieltran0.github.io/Rock_Paper_Scissors/)  
 Play Rock Paper Scissors game against a computer.  
