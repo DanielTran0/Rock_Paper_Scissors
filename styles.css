@@ -1,54 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    background-color: rgb(62, 130, 240);
-    font-family: 'Noto Sans JP';
+  background-color: rgb(62, 130, 240);
+  font-family: 'Noto Sans JP';
 }
+
+/*======
+  header
+  ======*/
+
+.header {
+    text-align: center;
+}
+
 h1{
-    margin-top: 50px;
-    font-size: 60px;
-}
-
-.lead {
-    color: white;
     margin-top: 20px;
-    font-size: 25px;
-}
-
-h2 {
-    font-weight: bold;
-    margin-top: 25px;
-    margin-bottom: 45px;
-}
-
-.playerMove, .compImg {
-    height: 250px;
-}
-
-.playerMove:hover {
-    transform: scale(1.2);
+    font-size: 40px;
 }
 
 #start {
+    background-color: rgb(22, 22, 22);
+    border: none;
+    color: white;
+    padding: 10px 45px;
     margin-top: 20px;
-    margin-bottom: 50px;
-    width: 200px;
+}
+
+.winner {
+	font-size: 25px;
+	color: white;
+	margin: 15px 0;
+}
+
+/*=====
+  moves
+  =====*/
+
+.userMoves, 
+.compMoves {
+	display: flex;
+	justify-content: space-between;
+	width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.scores {
+	text-align: center;
 }
 
 .points {
-    margin-top: 25px;
-    font-size: 35px;
+	margin-top: 20px;
+	font-size: 35px;
+}
+
+.scores > h2 {
+	font-weight: bold;
+	margin-top: 5px;
+	margin-bottom: 30px;
+}
+
+.playerMove, .compImg {
+    height: 200px;
+}
+
+.playerMove:hover {
+    transform: scale(1.1);
 }
 
 .active {
     border-style: solid;
     border-width: 10px;
     border-color: yellow;
-    transform: scale(1.2);
+    transform: scale(1.1);
 }
 
-.winner {
-    font-size: 25px;
-    color: white;
-    margin-top: 50px;
+@media (max-width: 750px) {
+	.playerMove, .compImg {
+    height: 125px;
+	}
+
+	.userMoves, 
+	.compMoves {
+		width: 450px;
+	}
+}
+
+@media (max-width: 400px) {
+	.playerMove, .compImg {
+    height: 100px;
+	}
+
+	.userMoves, 
+	.compMoves {
+		width: 350px;
+	}
 }

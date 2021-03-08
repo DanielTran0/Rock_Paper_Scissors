@@ -12,7 +12,6 @@ function gameStart() {
     playerCounter = 0;
     computerCounter = 0;
     gameScore();
-    roundWinner();
 }
 
 // Simulate a round
@@ -25,16 +24,16 @@ function playRound (e) {
     console.log(compMove)
     if (userMove == compMove) {
         gameScore();
-        roundWinner('tie', compMove);
+        setTimeout(() => roundWinner('tie', compMove), 200)
     }
     else if ((userMove == 'compRock' && compMove == 'compScissors') || (userMove == 'compPaper' && compMove == 'compRock') || 
              (userMove == 'compScissors' && compMove == 'compPaper')) {
         gameScore('player');
-        roundWinner('player', compMove);
+        setTimeout(() => roundWinner('player', compMove), 200)
     }
     else {
         gameScore('computer');
-        roundWinner('computer', compMove);
+        setTimeout(() => roundWinner('computer', compMove), 200)
     }
 }
 
@@ -93,23 +92,28 @@ function roundWinner(winner, compMove) {
 }
 
 function image(compMove) {
-    let  img = document.querySelector('.compImg#compRock');
-    img.classList.remove('active')
-    img = document.querySelector('.compImg#compPaper');
-    img.classList.remove('active')
-    img = document.querySelector('.compImg#compScissors');
-    img.classList.remove('active')
+    const imgRock = document.querySelector('.compImg#compRock');
+    const imgPaper = document.querySelector('.compImg#compPaper');
+    const imgScissors = document.querySelector('.compImg#compScissors');
 
+    imgRock.classList.remove('active')
+    imgPaper.classList.remove('active')
+    imgScissors.classList.remove('active')
+
+    setTimeout(() => showCompActiveMove(compMove), 50)
+}
+
+function showCompActiveMove() {
     if (compMove == 'compRock') {
-        img = document.querySelector('.compImg#compRock');
-        img.classList.add('active')
+        const imgRock = document.querySelector('.compImg#compRock');
+        imgRock.classList.add('active')
     }
     else if (compMove == 'compPaper') {
-        img = document.querySelector('.compImg#compPaper');
+        const img = document.querySelector('.compImg#compPaper');
         img.classList.add('active')
     }
     else if (compMove == 'compScissors') {
-        img = document.querySelector('.compImg#compScissors');
+        const img = document.querySelector('.compImg#compScissors');
         img.classList.add('active')
     }
 }
